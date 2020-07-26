@@ -32,6 +32,7 @@
     <string name="artists">Interpreten</string>
     <string name="genres">Genres</string>
     <string name="songs">Titel</string>
+    <string name="websongs">online</string>
     <string name="playlists">Wiedergabelisten</string>
     <string name="unplayable_file">Der Song konnte nicht abgespielt werden.</string>
     <string name="biography_unavailable">Die Biografie dieses Interpreten wurde nicht gefunden.</string>

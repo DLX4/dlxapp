@@ -20,6 +20,7 @@ public class Song implements Parcelable {
     public final String albumName;
     public final int artistId;
     public final String artistName;
+    private String url;
 
     public Song(int id, String title, int trackNumber, int year, long duration, String data, long dateModified, int albumId, String albumName, int artistId, String artistName) {
         this.id = id;
@@ -134,4 +135,12 @@ public class Song implements Parcelable {
             return new Song[size];
         }
     };
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

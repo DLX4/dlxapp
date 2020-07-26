@@ -31,6 +31,7 @@
     <string name="albums">Albums</string>
     <string name="artists">Artists</string>
     <string name="songs">Songs</string>
+    <string name="websongs">Songs</string>
     <string name="playlists">Playlists</string>
     <string name="unplayable_file">Couldn\u2019t play this song.</string>
     <string name="biography_unavailable">Couldn\u2019t find a biography entry for this artist.</string>

@@ -5,13 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.tabs.TabLayout;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,7 +13,15 @@ import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import com.afollestad.materialcab.MaterialCab;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.tabs.TabLayout;
 import com.kabouzeid.appthemehelper.ThemeStore;
 import com.kabouzeid.appthemehelper.common.ATHToolbarActivity;
 import com.kabouzeid.appthemehelper.util.TabLayoutUtil;
@@ -40,6 +41,7 @@ import com.kabouzeid.gramophone.ui.fragments.mainactivity.library.pager.AlbumsFr
 import com.kabouzeid.gramophone.ui.fragments.mainactivity.library.pager.ArtistsFragment;
 import com.kabouzeid.gramophone.ui.fragments.mainactivity.library.pager.PlaylistsFragment;
 import com.kabouzeid.gramophone.ui.fragments.mainactivity.library.pager.SongsFragment;
+import com.kabouzeid.gramophone.ui.fragments.mainactivity.library.pager.WebSongsFragment;
 import com.kabouzeid.gramophone.util.PhonographColorUtil;
 import com.kabouzeid.gramophone.util.PreferenceUtil;
 import com.kabouzeid.gramophone.util.Util;
@@ -358,6 +360,17 @@ public class LibraryFragment extends AbsMainActivityFragment implements CabHolde
             sortOrderMenu.add(0, R.id.action_artist_sort_order_desc, 1, R.string.sort_order_z_a)
                     .setChecked(currentSortOrder.equals(SortOrder.ArtistSortOrder.ARTIST_Z_A));
         } else if (fragment instanceof SongsFragment) {
+            sortOrderMenu.add(0, R.id.action_song_sort_order_asc, 0, R.string.sort_order_a_z)
+                    .setChecked(currentSortOrder.equals(SortOrder.SongSortOrder.SONG_A_Z));
+            sortOrderMenu.add(0, R.id.action_song_sort_order_desc, 1, R.string.sort_order_z_a)
+                    .setChecked(currentSortOrder.equals(SortOrder.SongSortOrder.SONG_Z_A));
+            sortOrderMenu.add(0, R.id.action_song_sort_order_artist, 2, R.string.sort_order_artist)
+                    .setChecked(currentSortOrder.equals(SortOrder.SongSortOrder.SONG_ARTIST));
+            sortOrderMenu.add(0, R.id.action_song_sort_order_album, 3, R.string.sort_order_album)
+                    .setChecked(currentSortOrder.equals(SortOrder.SongSortOrder.SONG_ALBUM));
+            sortOrderMenu.add(0, R.id.action_song_sort_order_year, 4, R.string.sort_order_year)
+                    .setChecked(currentSortOrder.equals(SortOrder.SongSortOrder.SONG_YEAR));
+        } else if (fragment instanceof WebSongsFragment) {
             sortOrderMenu.add(0, R.id.action_song_sort_order_asc, 0, R.string.sort_order_a_z)
                     .setChecked(currentSortOrder.equals(SortOrder.SongSortOrder.SONG_A_Z));
             sortOrderMenu.add(0, R.id.action_song_sort_order_desc, 1, R.string.sort_order_z_a)

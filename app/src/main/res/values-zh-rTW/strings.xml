@@ -33,6 +33,7 @@
     <string name="artists">演出者</string>
     <string name="genres">類型</string>
     <string name="songs">歌曲</string>
+    <string name="websongs">歌曲</string>
     <string name="playlists">播放清單</string>
     <string name="unplayable_file">\u7121\u6cd5\u64ad\u653e\u9019\u9996\u6b4c\u3002</string>
     <string name="biography_unavailable">\u7121\u6cd5\u627e\u5230\u9019\u4f4d\u6b4c\u624b\u7684\u500b\u4eba\u7c21\u4ecb\u3002</string>

@@ -42,6 +42,7 @@ public class CategoryInfo implements Parcelable {
 
     public enum Category {
         SONGS(R.string.songs),
+        WEBSONGS(R.string.websongs),
         ALBUMS(R.string.albums),
         ARTISTS(R.string.artists),
         GENRES(R.string.genres),

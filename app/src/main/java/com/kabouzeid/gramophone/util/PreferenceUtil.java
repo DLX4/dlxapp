@@ -527,8 +527,9 @@ public final class PreferenceUtil {
     }
 
     public List<CategoryInfo> getDefaultLibraryCategoryInfos() {
-        List<CategoryInfo> defaultCategoryInfos = new ArrayList<>(5);
+        List<CategoryInfo> defaultCategoryInfos = new ArrayList<>(6);
         defaultCategoryInfos.add(new CategoryInfo(CategoryInfo.Category.SONGS, true));
+        defaultCategoryInfos.add(new CategoryInfo(CategoryInfo.Category.WEBSONGS, true));
         defaultCategoryInfos.add(new CategoryInfo(CategoryInfo.Category.ALBUMS, true));
         defaultCategoryInfos.add(new CategoryInfo(CategoryInfo.Category.ARTISTS, true));
         defaultCategoryInfos.add(new CategoryInfo(CategoryInfo.Category.GENRES, true));

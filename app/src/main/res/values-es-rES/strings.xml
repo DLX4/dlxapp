@@ -32,6 +32,7 @@
     <string name="artists">Artistas</string>
     <string name="genres">Géneros</string>
     <string name="songs">Canciones</string>
+    <string name="websongs">Canciones</string>
     <string name="playlists">Listas de reproducción</string>
     <string name="unplayable_file">No es posible reproducir esta canci\u00f3n.</string>
     <string name="biography_unavailable">Lo sentimos, no encontramos una biograf\u00eda correspondiente a \u00e9ste artista</string>

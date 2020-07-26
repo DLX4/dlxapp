@@ -14,6 +14,7 @@
     <string name="action_remove_from_favorites">从收藏中移除</string>
     <string name="action_search">搜索</string>
     <string name="action_play_next">作为下一首播放</string>
+    <string name="action_download">下载到本地</string>
     <string name="action_play">播放</string>
     <string name="action_play_pause">播放/暂停</string>
     <string name="action_previous">上一首</string>
@@ -32,6 +33,7 @@
     <string name="artists">艺术家</string>
     <string name="genres">流派</string>
     <string name="songs">歌曲</string>
+    <string name="websongs">在线歌单</string>
     <string name="playlists">播放列表</string>
     <string name="unplayable_file">\u65e0\u6cd5\u64ad\u653e\u8be5\u6b4c\u66f2\u3002</string>
     <string name="biography_unavailable">\u627e\u4e0d\u5230\u8be5\u827a\u672f\u5bb6\u7684\u4e2a\u4eba\u4fe1\u606f\u3002</string>

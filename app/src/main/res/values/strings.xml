@@ -17,6 +17,7 @@
     <string name="action_remove_from_favorites">Remove from favorites</string>
     <string name="action_search">Search</string>
     <string name="action_play_next">Play next</string>
+    <string name="action_download">Download</string>
     <string name="action_play">Play</string>
     <string name="action_play_pause">Play/Pause</string>
     <string name="action_previous">Previous</string>
@@ -35,6 +36,7 @@
     <string name="artists">Artists</string>
     <string name="genres">Genres</string>
     <string name="songs">Songs</string>
+    <string name="websongs">Online</string>
     <string name="playlists">Playlists</string>
     <string name="unplayable_file">Couldn\u2019t play this song.</string>
     <string name="biography_unavailable">Couldn\u2019t find a biography entry for this artist.</string>

@@ -32,6 +32,7 @@
     <string name="artists">Sanatçılar</string>
     <string name="genres">Türler</string>
     <string name="songs">Şarkılar</string>
+    <string name="websongs">Şarkılar</string>
     <string name="playlists">Çalma listeleri</string>
     <string name="unplayable_file">Bu \u015fark\u0131 \u00e7al\u0131namad\u0131.</string>
     <string name="biography_unavailable">Bu sanat\u00e7\u0131 i\u00e7in bir biyografi giri\u015fi bulunamad\u0131.</string>

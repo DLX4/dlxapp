@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio.AudioColumns;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -12,8 +13,19 @@ import com.kabouzeid.gramophone.model.Song;
 import com.kabouzeid.gramophone.provider.BlacklistStore;
 import com.kabouzeid.gramophone.util.PreferenceUtil;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * @author Karim Abou Zeid (kabouzeid)
@@ -38,6 +50,53 @@ public class SongLoader {
     public static List<Song> getAllSongs(@NonNull Context context) {
         Cursor cursor = makeSongCursor(context, null, null);
         return getSongs(cursor);
+    }
+
+
+    @NonNull
+    public static List<Song> getWebSongs() {
+        List<Song> songs = new ArrayList<>();
+        Request request = new Request.Builder()
+                .url("https://api.itooi.cn/netease/songList?id=3778678&format=1")
+                .build();
+
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(10, TimeUnit.SECONDS)//设置连接超时时间
+                .readTimeout(10, TimeUnit.SECONDS)//设置读取超时时间
+                .build();
+
+        Call call = client.newCall(request);
+        try {
+            Response response = call.execute();
+            String result = response.body().string();
+            JSONObject obj = new JSONObject(result);
+            JSONArray songsArr = new JSONArray(obj.getString("data"));
+
+            for (int i = 0; i < songsArr.length(); i++) {
+                JSONObject songObj = songsArr.getJSONObject(i);
+
+                String id = songObj.getString("id");
+                String songurl = "https://api.itooi.cn/netease/url?id=" + id + "&quality=128";
+                String name = songObj.getString("name");
+                String singer = songObj.getString("singer");
+                // String pic = "https://api.itooi.cn/netease/pic?id=" + id;
+
+                Song song = new Song(Integer.parseInt(id),
+                        name,
+                        0, 0, 10,
+                        "",
+                        0,
+                        0,
+                        "",
+                        0,
+                        singer);
+                song.setUrl(songurl);
+                songs.add(song);
+            }
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
+        return songs;
     }
 
     @NonNull

@@ -2,12 +2,13 @@ package com.kabouzeid.gramophone.adapter;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.SparseArray;
+import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import android.util.SparseArray;
-import android.view.ViewGroup;
 
 import com.kabouzeid.gramophone.model.CategoryInfo;
 import com.kabouzeid.gramophone.ui.fragments.mainactivity.library.pager.AlbumsFragment;
@@ -15,6 +16,7 @@ import com.kabouzeid.gramophone.ui.fragments.mainactivity.library.pager.ArtistsF
 import com.kabouzeid.gramophone.ui.fragments.mainactivity.library.pager.GenresFragment;
 import com.kabouzeid.gramophone.ui.fragments.mainactivity.library.pager.PlaylistsFragment;
 import com.kabouzeid.gramophone.ui.fragments.mainactivity.library.pager.SongsFragment;
+import com.kabouzeid.gramophone.ui.fragments.mainactivity.library.pager.WebSongsFragment;
 import com.kabouzeid.gramophone.util.PreferenceUtil;
 
 import java.lang.ref.WeakReference;
@@ -148,6 +150,7 @@ public class MusicLibraryPagerAdapter extends FragmentPagerAdapter {
 
     public enum MusicFragments {
         SONGS(SongsFragment.class),
+        WEBSONGS(WebSongsFragment.class),
         ALBUMS(AlbumsFragment.class),
         ARTISTS(ArtistsFragment.class),
         GENRES(GenresFragment.class),

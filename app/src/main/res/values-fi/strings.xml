@@ -32,6 +32,7 @@
     <string name="artists">Artistit</string>
     <string name="genres">Tyylilajit</string>
     <string name="songs">Kappaleet</string>
+    <string name="websongs">Kappaleet</string>
     <string name="playlists">Soittolistat</string>
     <string name="unplayable_file">Virhe toistettaessa kappaletta.</string>
     <string name="biography_unavailable">El\u00e4m\u00e4nkertaa ei l\u00f6ytynyt t\u00e4lle artistille.</string>

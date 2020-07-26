@@ -26,6 +26,7 @@ import com.kabouzeid.gramophone.util.RingtoneManager;
  */
 public class SongMenuHelper {
     public static final int MENU_RES = R.menu.menu_item_song;
+    public static final int MENU_WEB = R.menu.menu_item_websong;
 
     public static boolean handleMenuClick(@NonNull FragmentActivity activity, @NonNull Song song, int menuItemId) {
         switch (menuItemId) {
