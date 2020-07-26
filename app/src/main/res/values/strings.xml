@@ -81,10 +81,14 @@
     <string name="delete_x_playlists"><![CDATA[Delete <b>%1$d</b> playlists?]]></string>
     <string name="delete_song_x"><![CDATA[Delete the song <b>%1$s</b>?]]></string>
     <string name="delete_x_songs"><![CDATA[Delete <b>%1$d</b> songs?]]></string>
+    <string name="download_song_x"><![CDATA[Download the song <b>%1$s</b>?]]></string>
+    <string name="download_x_songs"><![CDATA[Download <b>%1$d</b> songs?]]></string>
     <string name="remove_song_x_from_playlist"><![CDATA[Remove the song <b>%1$s</b> from the playlist?]]></string>
     <string name="remove_x_songs_from_playlist"><![CDATA[Remove <b>%1$d</b> songs from the playlist?]]></string>
     <string name="delete_song_title">Delete song</string>
     <string name="delete_songs_title">Delete songs</string>
+    <string name="download_song_title">Download song</string>
+    <string name="download_songs_title">Download songs</string>
     <string name="remove_song_from_playlist_title">Remove song from playlist</string>
     <string name="remove_songs_from_playlist_title">Remove songs from playlist</string>
     <string name="rename_playlist_title">Rename playlist</string>
@@ -142,6 +146,7 @@
     <string name="no_equalizer">No equalizer found.</string>
     <string name="no_audio_ID">"Play a song first, then try again."</string>
     <string name="delete_action">Delete</string>
+    <string name="download_action">Download</string>
     <string name="clear_action">Clear</string>
     <string name="remove_action">Remove</string>
     <string name="rename_action">Rename</string>

@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * @author Karim Abou Zeid (kabouzeid)
  */
-public class SongAdapter extends AbsMultiSelectAdapter<SongAdapter.ViewHolder, Song> implements MaterialCab.Callback, FastScrollRecyclerView.SectionedAdapter {
+public class WebSongAdapter extends AbsMultiSelectAdapter<WebSongAdapter.ViewHolder, Song> implements MaterialCab.Callback, FastScrollRecyclerView.SectionedAdapter {
 
     protected final AppCompatActivity activity;
     protected List<Song> dataSet;
@@ -47,11 +47,11 @@ public class SongAdapter extends AbsMultiSelectAdapter<SongAdapter.ViewHolder, S
     protected boolean usePalette = false;
     protected boolean showSectionName = true;
 
-    public SongAdapter(AppCompatActivity activity, List<Song> dataSet, @LayoutRes int itemLayoutRes, boolean usePalette, @Nullable CabHolder cabHolder) {
+    public WebSongAdapter(AppCompatActivity activity, List<Song> dataSet, @LayoutRes int itemLayoutRes, boolean usePalette, @Nullable CabHolder cabHolder) {
         this(activity, dataSet, itemLayoutRes, usePalette, cabHolder, true);
     }
 
-    public SongAdapter(AppCompatActivity activity, List<Song> dataSet, @LayoutRes int itemLayoutRes, boolean usePalette, @Nullable CabHolder cabHolder, boolean showSectionName) {
+    public WebSongAdapter(AppCompatActivity activity, List<Song> dataSet, @LayoutRes int itemLayoutRes, boolean usePalette, @Nullable CabHolder cabHolder, boolean showSectionName) {
         super(activity, cabHolder, R.menu.menu_media_selection);
         this.activity = activity;
         this.dataSet = dataSet;
@@ -209,7 +209,7 @@ public class SongAdapter extends AbsMultiSelectAdapter<SongAdapter.ViewHolder, S
     }
 
     public class ViewHolder extends MediaEntryViewHolder {
-        protected int DEFAULT_MENU_RES = SongMenuHelper.MENU_RES;
+        protected int DEFAULT_MENU_RES = SongMenuHelper.MENU_WEB;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -76,7 +76,7 @@ public class SongLoader {
                 JSONObject songObj = songsArr.getJSONObject(i);
 
                 String id = songObj.getString("id");
-                String songurl = "https://api.itooi.cn/netease/url?id=" + id + "&quality=128";
+                String url = "https://api.itooi.cn/netease/url?id=" + id + "&quality=128";
                 String name = songObj.getString("name");
                 String singer = songObj.getString("singer");
                 // String pic = "https://api.itooi.cn/netease/pic?id=" + id;
@@ -84,13 +84,13 @@ public class SongLoader {
                 Song song = new Song(Integer.parseInt(id),
                         name,
                         0, 0, 10,
-                        "",
+                        url,
                         0,
                         0,
                         "",
                         0,
                         singer);
-                song.setUrl(songurl);
+                song.setUrl(url);
                 songs.add(song);
             }
         } catch (IOException | JSONException e) {

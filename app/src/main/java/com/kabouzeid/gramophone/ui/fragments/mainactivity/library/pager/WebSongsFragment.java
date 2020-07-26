@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.kabouzeid.gramophone.R;
 import com.kabouzeid.gramophone.adapter.song.SongAdapter;
+import com.kabouzeid.gramophone.adapter.song.WebSongAdapter;
 import com.kabouzeid.gramophone.interfaces.LoaderIds;
 import com.kabouzeid.gramophone.loader.SongLoader;
 import com.kabouzeid.gramophone.misc.WrappedAsyncTaskLoader;
@@ -22,7 +23,7 @@ import java.util.List;
 /**
  * @author Karim Abou Zeid (kabouzeid)
  */
-public class WebSongsFragment extends AbsLibraryPagerRecyclerViewCustomGridSizeFragment<SongAdapter, GridLayoutManager> implements LoaderManager.LoaderCallbacks<List<Song>> {
+public class WebSongsFragment extends AbsLibraryPagerRecyclerViewCustomGridSizeFragment<WebSongAdapter, GridLayoutManager> implements LoaderManager.LoaderCallbacks<List<Song>> {
 
     private static final int LOADER_ID = LoaderIds.WEBSONGS_FRAGMENT;
 
@@ -40,7 +41,7 @@ public class WebSongsFragment extends AbsLibraryPagerRecyclerViewCustomGridSizeF
 
     @NonNull
     @Override
-    protected SongAdapter createAdapter() {
+    protected WebSongAdapter createAdapter() {
         int itemLayoutRes = getItemLayoutRes();
         notifyLayoutResChanged(itemLayoutRes);
         boolean usePalette = loadUsePalette();
@@ -54,7 +55,7 @@ public class WebSongsFragment extends AbsLibraryPagerRecyclerViewCustomGridSizeF
 //                    usePalette,
 //                    getLibraryFragment());
         }
-        return new SongAdapter(
+        return new WebSongAdapter(
                 getLibraryFragment().getMainActivity(),
                 dataSet,
                 itemLayoutRes,

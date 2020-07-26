@@ -78,10 +78,14 @@
     <string name="delete_x_playlists"><![CDATA[是否删除 <b>%1$d</b> 个播放列表？]]></string>
     <string name="delete_song_x"><![CDATA[是否删除歌曲 <b>%1$s</b>？]]></string>
     <string name="delete_x_songs"><![CDATA[是否删除 <b>%1$d</b> 首歌曲？]]></string>
+    <string name="download_song_x"><![CDATA[是否下载歌曲 <b>%1$s</b>？]]></string>
+    <string name="download_x_songs"><![CDATA[是否下载 <b>%1$d</b> 首歌曲？]]></string>
     <string name="remove_song_x_from_playlist"><![CDATA[是否从播放列表中移除 <b>%1$s</b>？]]></string>
     <string name="remove_x_songs_from_playlist"><![CDATA[是否从播放列表中移除 <b>%1$d</b> 首歌曲？]]></string>
     <string name="delete_song_title">删除歌曲</string>
     <string name="delete_songs_title">删除多首歌曲</string>
+    <string name="download_song_title">下载歌曲</string>
+    <string name="download_songs_title">下载多首歌曲</string>
     <string name="remove_song_from_playlist_title">从播放列表中移除歌曲</string>
     <string name="remove_songs_from_playlist_title">从播放列表中移除多首歌曲</string>
     <string name="rename_playlist_title">重命名播放列表</string>
@@ -139,6 +143,7 @@
     <string name="no_equalizer">没有找到均衡器。</string>
     <string name="no_audio_ID">"请在播放歌曲后再次尝试此操作。"</string>
     <string name="delete_action">删除</string>
+    <string name="download_action">下载</string>
     <string name="clear_action">清空</string>
     <string name="remove_action">移除</string>
     <string name="rename_action">重命名</string>

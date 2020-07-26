@@ -10,13 +10,13 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
-import android.provider.Settings;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.FileProvider;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
 
 import com.kabouzeid.gramophone.R;
 import com.kabouzeid.gramophone.helper.MusicPlayerRemote;
@@ -32,8 +32,13 @@ import com.kabouzeid.gramophone.model.lyrics.AbsSynchronizedLyrics;
 import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.tag.FieldKey;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -43,6 +48,13 @@ import java.util.regex.Pattern;
  * @author Karim Abou Zeid (kabouzeid)
  */
 public class MusicUtil {
+
+    public static String getMusicDirPath() {
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separatorChar + "Music";
+    }
+    public static String getMusicFilePath(String id) {
+        return getMusicDirPath() + File.separatorChar + id + ".mp3";
+    }
 
     public static Uri getMediaStoreAlbumCoverUri(int albumId) {
         final Uri sArtworkUri = Uri.parse("content://media/external/audio/albumart");
@@ -71,15 +83,14 @@ public class MusicUtil {
     }
 
 
-
     @NonNull
     public static String getArtistInfoString(@NonNull final Context context, @NonNull final Artist artist) {
         int albumCount = artist.getAlbumCount();
         int songCount = artist.getSongCount();
 
         return MusicUtil.buildInfoString(
-            MusicUtil.getAlbumCountString(context, albumCount),
-            MusicUtil.getSongCountString(context, songCount)
+                MusicUtil.getAlbumCountString(context, albumCount),
+                MusicUtil.getSongCountString(context, songCount)
         );
     }
 
@@ -88,16 +99,21 @@ public class MusicUtil {
         int songCount = album.getSongCount();
 
         return MusicUtil.buildInfoString(
-            album.getArtistName(),
-            MusicUtil.getSongCountString(context, songCount)
+                album.getArtistName(),
+                MusicUtil.getSongCountString(context, songCount)
         );
     }
+
+    public static String downloadSongs(Context context, List<Song> songs) {
+        return null;
+    }
+
 
     @NonNull
     public static String getSongInfoString(@NonNull final Song song) {
         return MusicUtil.buildInfoString(
-            song.artistName,
-            song.albumName
+                song.artistName,
+                song.albumName
         );
     }
 
@@ -112,8 +128,8 @@ public class MusicUtil {
         final long duration = getTotalDuration(context, songs);
 
         return MusicUtil.buildInfoString(
-            MusicUtil.getSongCountString(context, songs.size()),
-            MusicUtil.getReadableDurationString(duration)
+                MusicUtil.getSongCountString(context, songs.size()),
+                MusicUtil.getReadableDurationString(duration)
         );
     }
 
@@ -154,15 +170,14 @@ public class MusicUtil {
         }
     }
 
-    /** 
+    /**
      * Build a concatenated string from the provided arguments
      * The intended purpose is to show extra annotations
      * to a music library item.
      * Ex: for a given album --> buildInfoString(album.artist, album.songCount)
      */
     @NonNull
-    public static String buildInfoString(@Nullable final String string1, @Nullable final String string2)
-    {
+    public static String buildInfoString(@Nullable final String string1, @Nullable final String string2) {
         // Skip empty strings
         if (TextUtils.isEmpty(string1)) {
             //noinspection ConstantConditions
@@ -264,7 +279,7 @@ public class MusicUtil {
                         final File f = new File(name);
                         if (f.delete()) {
                             // Step 3: Remove selected track from the database
-                            context.getContentResolver().delete(ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id),null, null);
+                            context.getContentResolver().delete(ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id), null, null);
                             deletedCount++;
                         } else {
                             // I'm not sure if we'd ever get here (deletion would

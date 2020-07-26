@@ -1,16 +1,18 @@
 package com.kabouzeid.gramophone.helper.menu;
 
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+
 import com.kabouzeid.gramophone.R;
 import com.kabouzeid.gramophone.dialogs.AddToPlaylistDialog;
 import com.kabouzeid.gramophone.dialogs.DeleteSongsDialog;
+import com.kabouzeid.gramophone.dialogs.DownloadSongsDialog;
 import com.kabouzeid.gramophone.dialogs.SongDetailDialog;
 import com.kabouzeid.gramophone.helper.MusicPlayerRemote;
 import com.kabouzeid.gramophone.interfaces.PaletteColorHolder;
@@ -49,6 +51,9 @@ public class SongMenuHelper {
                 return true;
             case R.id.action_play_next:
                 MusicPlayerRemote.playNext(song);
+                return true;
+            case R.id.action_download:
+                DownloadSongsDialog.create(song).show(activity.getSupportFragmentManager(), "DOWNLOAD_SONGS");
                 return true;
             case R.id.action_add_to_current_playing:
                 MusicPlayerRemote.enqueue(song);
