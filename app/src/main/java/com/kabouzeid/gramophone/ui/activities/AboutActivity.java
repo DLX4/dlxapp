@@ -5,15 +5,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.Toolbar;
-
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 
 import com.afollestad.materialdialogs.internal.ThemeSingleton;
 import com.kabouzeid.appthemehelper.ThemeStore;
@@ -39,6 +38,7 @@ public class AboutActivity extends AbsBaseActivity implements View.OnClickListen
 
     private static String TWITTER = "https://twitter.com/swiftkarim";
     private static String WEBSITE = "https://kabouzeid.com/";
+    private static String WEBSITE_DLX = "https://github.com/DLX4";
 
     private static String TRANSLATE = "https://phonograph.oneskyapp.com/collaboration/project?id=26521";
     private static String RATE_ON_GOOGLE_PLAY = "https://play.google.com/store/apps/details?id=com.kabouzeid.gramophone";
@@ -75,6 +75,8 @@ public class AboutActivity extends AbsBaseActivity implements View.OnClickListen
     LinearLayout forkOnGitHub;
     @BindView(R.id.visit_website)
     LinearLayout visitWebsite;
+    @BindView(R.id.visit_website_dlx)
+    LinearLayout visitWebsiteDlx;
     @BindView(R.id.report_bugs)
     LinearLayout reportBugs;
     @BindView(R.id.translate)
@@ -138,6 +140,7 @@ public class AboutActivity extends AbsBaseActivity implements View.OnClickListen
         followOnTwitter.setOnClickListener(this);
         forkOnGitHub.setOnClickListener(this);
         visitWebsite.setOnClickListener(this);
+        visitWebsiteDlx.setOnClickListener(this);
         reportBugs.setOnClickListener(this);
         writeAnEmail.setOnClickListener(this);
         translate.setOnClickListener(this);
@@ -185,6 +188,8 @@ public class AboutActivity extends AbsBaseActivity implements View.OnClickListen
             openUrl(GITHUB);
         } else if (v == visitWebsite) {
             openUrl(WEBSITE);
+        } else if (v == visitWebsiteDlx) {
+            openUrl(WEBSITE_DLX);
         } else if (v == reportBugs) {
             startActivity(new Intent(this, BugReportActivity.class));
         } else if (v == writeAnEmail) {

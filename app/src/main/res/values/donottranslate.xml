@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="dlx" translatable="false">dlx</string>
     <string name="karim_abou_zeid" translatable="false">Karim Abou Zeid</string>
     <string name="aidan_follestad" translatable="false">Aidan Follestad</string>
     <string name="maarten_corpel" translatable="false">Maarten Corpel</string>
@@ -9,6 +10,7 @@
     <string name="adrian" translatable="false">Adrian</string>
 
     <string name="aachen_germany" translatable="false">Aachen, Germany</string>
+    <string name="hangzhou_china" translatable="false">HangZhou, China</string>
 
     <string name="git_hub" translatable="false">GitHub</string>
     <string name="twitter" translatable="false">Twitter</string>
