@@ -56,6 +56,11 @@ public class MusicUtil {
         return getMusicDirPath() + File.separatorChar + id + ".mp3";
     }
 
+    public static boolean isMusicFileExists(String id) {
+        File file = new File(getMusicFilePath(id));
+        return file.exists();
+    }
+
     public static Uri getMediaStoreAlbumCoverUri(int albumId) {
         final Uri sArtworkUri = Uri.parse("content://media/external/audio/albumart");
 

@@ -68,6 +68,7 @@ public class SongLoader {
         Call call = client.newCall(request);
         try {
             Response response = call.execute();
+            assert response.body() != null;
             String result = response.body().string();
             JSONObject obj = new JSONObject(result);
             JSONArray songsArr = new JSONArray(obj.getString("data"));
@@ -95,6 +96,8 @@ public class SongLoader {
             }
         } catch (IOException | JSONException e) {
             e.printStackTrace();
+        } finally {
+            client.dispatcher().cancelAll();
         }
         return songs;
     }
