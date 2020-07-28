@@ -21,6 +21,8 @@ public class Song implements Parcelable {
     public final int artistId;
     public final String artistName;
     private String url;
+    private String picUrl;
+    private String lrcUrl;
 
     public Song(int id, String title, int trackNumber, int year, long duration, String data, long dateModified, int albumId, String albumName, int artistId, String artistName) {
         this.id = id;
@@ -142,5 +144,21 @@ public class Song implements Parcelable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
+
+    public String getLrcUrl() {
+        return lrcUrl;
+    }
+
+    public void setLrcUrl(String lrcUrl) {
+        this.lrcUrl = lrcUrl;
     }
 }

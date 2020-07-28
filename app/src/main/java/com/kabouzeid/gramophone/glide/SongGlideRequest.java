@@ -2,6 +2,7 @@ package com.kabouzeid.gramophone.glide;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.BitmapRequestBuilder;
@@ -19,6 +20,9 @@ import com.kabouzeid.gramophone.glide.palette.BitmapPaletteWrapper;
 import com.kabouzeid.gramophone.model.Song;
 import com.kabouzeid.gramophone.util.MusicUtil;
 import com.kabouzeid.gramophone.util.PreferenceUtil;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * @author Karim Abou Zeid (kabouzeid)
@@ -113,7 +117,17 @@ public class SongGlideRequest {
         if (ignoreMediaStore) {
             return requestManager.load(new AudioFileCover(song.data));
         } else {
-            return requestManager.loadFromMediaStore(MusicUtil.getMediaStoreAlbumCoverUri(song.albumId));
+            if (song.albumId == -1) {
+                try {
+                    return requestManager.load(new URL(song.getPicUrl()));
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            } else {
+                return requestManager.loadFromMediaStore(MusicUtil.getMediaStoreAlbumCoverUri(song.albumId));
+            }
+
         }
     }
 

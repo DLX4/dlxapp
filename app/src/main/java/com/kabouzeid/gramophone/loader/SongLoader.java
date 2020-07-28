@@ -80,18 +80,22 @@ public class SongLoader {
                 String url = "https://api.itooi.cn/netease/url?id=" + id + "&quality=128";
                 String name = songObj.getString("name");
                 String singer = songObj.getString("singer");
+                String pic = songObj.getString("pic");
+                String lrc = songObj.getString("lrc");
                 // String pic = "https://api.itooi.cn/netease/pic?id=" + id;
 
                 Song song = new Song(Integer.parseInt(id),
                         name,
-                        0, 0, 10,
+                        -1, -1, -1,
                         url,
-                        0,
-                        0,
+                        -1,
+                        -1,
                         "",
-                        0,
+                        -1,
                         singer);
                 song.setUrl(url);
+                song.setPicUrl(pic);
+                song.setLrcUrl(lrc);
                 songs.add(song);
             }
         } catch (IOException | JSONException e) {
