@@ -57,7 +57,9 @@ public class SongLoader {
     public static List<Song> getWebSongs() {
         List<Song> songs = new ArrayList<>();
         Request request = new Request.Builder()
-                .url("https://api.itooi.cn/netease/songList?id=3778678&format=1")
+                .url("https://music.163.com/api/playlist/detail?id=3778678")
+                .addHeader("User-Agent","Mozilla/4.0 (compatible; MSIE 7.0; Windows 7)")
+                .get()
                 .build();
 
         OkHttpClient client = new OkHttpClient.Builder()
@@ -71,17 +73,19 @@ public class SongLoader {
             assert response.body() != null;
             String result = response.body().string();
             JSONObject obj = new JSONObject(result);
-            JSONArray songsArr = new JSONArray(obj.getString("data"));
+            obj = new JSONObject(obj.getString("result"));
+
+            JSONArray songsArr = obj.getJSONArray("tracks");
 
             for (int i = 0; i < songsArr.length(); i++) {
                 JSONObject songObj = songsArr.getJSONObject(i);
 
                 String id = songObj.getString("id");
-                String url = "https://api.itooi.cn/netease/url?id=" + id + "&quality=128";
+                String url = "http://music.163.com/song/media/outer/url?id=" + id;
                 String name = songObj.getString("name");
-                String singer = songObj.getString("singer");
-                String pic = songObj.getString("pic");
-                String lrc = songObj.getString("lrc");
+                String singer = songObj.getJSONArray("artists").getJSONObject(0).getString("name");
+                String pic = songObj.getJSONObject("album").getString("blurPicUrl");
+                String lrc = "xx";
                 // String pic = "https://api.itooi.cn/netease/pic?id=" + id;
 
                 Song song = new Song(Integer.parseInt(id),
